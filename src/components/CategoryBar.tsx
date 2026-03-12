@@ -1,4 +1,4 @@
-import { categories } from "@/data/mockData";
+import { useCategories } from "@/hooks/useGroceryData";
 
 interface CategoryBarProps {
   selectedCategory: string | null;
@@ -6,6 +6,8 @@ interface CategoryBarProps {
 }
 
 const CategoryBar = ({ selectedCategory, onSelectCategory }: CategoryBarProps) => {
+  const { data: categories = [] } = useCategories();
+
   return (
     <section className="container mx-auto px-4 -mt-6 relative z-10">
       <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
